@@ -1,18 +1,4 @@
-import os
-import zipfile
-import pickle
 
-# Extract if missing
-if not os.path.exists("similarity.pkl"):
-    if os.path.exists("similarity.zip"):
-        with zipfile.ZipFile("similarity.zip", "r") as z:
-            z.extractall(".")
-    else:
-        raise FileNotFoundError("similarity.zip not found.")
-
-# Load similarity.pkl
-with open("similarity.pkl", "rb") as f:
-    similarity = pickle.load(f)
      
 import streamlit as st
 import pickle
@@ -89,4 +75,5 @@ if st.button("Show Recommend"):
     with col5:
         st.text(movie_name[4])
         st.image(movie_poster[4])
+
 
